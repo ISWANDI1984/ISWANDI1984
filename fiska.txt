@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader Example</title>
+    <style>
+        /* Centering the loader on the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Light background for contrast */
+        }
+
+        .loader {
+            width: 190px; /* Width of the loader */
+            aspect-ratio: 1; /* Maintains a square aspect ratio */
+            color: #dc1818; /* Loader color */
+            background:
+                radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+                radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+                linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+                linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+            background-size: 50% 50%; /* Size of each gradient */
+            background-repeat: no-repeat; /* Prevents background repetition */
+            position: relative; /* For absolute positioning of the pseudo-element */
+        }
+
+        .loader:after {
+            content: ""; /* Required for pseudo-elements */
+            position: absolute; /* Positioning relative to the loader */
+            inset: 0; /* Covers the loader completely */
+            background: inherit; /* Inherits the background from the loader */
+            opacity: 0.4; /* Slight transparency for the overlay effect */
+            animation: l3 1s infinite; /* Animation defined below */
+        }
+
+        @keyframes l3 {
+            to {
+                transform: scale(1.8); /* Scale up the loader */
+                opacity: 0; /* Fade out */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div> <!-- Loader element -->
+</body>
+</html>
